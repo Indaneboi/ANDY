@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    FILE *p;
+    p = fopen("a4.txt","w");
+    int i,n,j;
+    char name[100];
+    printf("Enter n ");
+    scanf("%d", &n);
+    for(i=0;i<=n;i++)
+    {
+        gets(name);
+        fprintf(p,"%s\n",name);
+    }
+    fclose(p);
+}
