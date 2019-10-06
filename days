@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+
+class date
+{
+public:
+    int d,m,y;
+};
+
+int yd(int a)
+{
+    int i;
+    i= (a*365) + (a/4) - (a/400);
+    return i;
+}
+int md(int m, int y)
+{
+    int a=0;
+    if(m==1)
+    {
+        a = a+31;
+    }
+    else if(m==2)
+    {
+        a = a+31+28;
+    }
+    else if(m==3)
+    {
+        a = a+62+28;
+    }
+    if(m==4)
+    {
+        a = a+120;
+    }
+    if(m==5)
+    {
+        a = a+31+120;
+    }
+    else if(m==6)
+    {
+        a = a+30+151;
+    }
+    else if(m==7)
+    {
+        a = a+31+181;
+    }
+    else if(m==8)
+    {
+        a = a+31+212;
+    }
+    else if(m==9)
+    {
+        a = a+31+242;
+    }
+    else if(m==10)
+    {
+        a = a+31+273;
+    }
+    else if(m==11)
+    {
+        a = a+31+303;
+    }
+    else if(m==12)
+    {
+        a = a+31+334;
+    }
+    if((y/4)&&(m>2))
+    {
+        a=a+1;
+    }
+    return a;
+}
+int main()
+{
+    date a,b;
+    int i,j,x,y,m,n,f;
+    a.d=1;
+    a.m=8;
+    a.y=2019;
+    cout<<"Enter dob: dd/mm/yy ";
+    cin>>b.d>>b.m>>b.y;
+    i= yd(a.y);
+    j= yd(b.y);
+    x=md(a.m,a.y);
+    y=md(b.m,b.y);
+    m=i+x+a.d;
+    n=j+y+b.d;
+    f=m-n;
+    if(f>=0)
+    {
+     cout<<"Days survived: "<<f;
+    }
+    if(f<0)
+    {
+        cout<<"Paida to ho jaa ";
+    }
+
+    return 0;
+}
