@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Employee
+{
+public:
+    char fname[50];
+    char lname[100];
+    int salary;
+    Employee()
+    {
+        strcpy(fname, "Captain");
+        strcpy(lname,"Luigi");
+        salary=0;
+    }
+
+    void getdata()
+    {
+        cout<<"Enter first name: ";
+        cin>>fname;
+        cout<<endl<<"Enter last name: ";
+        cin>>lname;
+        cout<<endl<<"Enter monthly salary: ";
+        cin>>salary;
+    }
+
+    void setdata()
+    {
+        cout<<"First name:  "<<fname<<endl;
+        cout<<"Last name:  "<<lname<<endl;
+        cout<<"Salary:  "<<salary<<endl;
+    }
+};
+void max(Employee a, Employee b)
+{
+    if(a.salary> b.salary)
+    {
+        cout<<a.fname<<" is paid more";
+    }
+    else
+    {
+        cout<<b.fname<<" is paid more";
+    }
+}
+
+int main()
+{
+    Employee e1;
+    Employee e2;
+    int i,t,k;
+    e1.getdata();
+    e2.getdata();
+    t = e1.salary*12;
+    k = e2.salary*12;
+    cout<<"Salary of e1:  "<<t<<endl;
+    cout<<"Salary of e2:  "<<k<<endl;
+    cout<<"Raised salary of e1:  "<<e1.salary+(e1.salary/10)<<endl;
+    cout<<"Raised salary of e2:  "<<e2.salary+(e2.salary/10)<<endl;
+    max(e1,e2);
+    return 0;
+}
